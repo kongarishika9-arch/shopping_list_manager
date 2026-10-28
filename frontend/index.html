@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🛒 Shopping List Manager</h1>
+            <p>Plan your shopping and manage your budget easily!</p>
+        </header>
+
+        <section class="shopping-form">
+            <h2>Add Shopping Item</h2>
+
+            <form id="shoppingForm">
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input
+                        type="text"
+                        id="itemName"
+                        placeholder="Enter item name"
+                        required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input
+                            type="number"
+                            id="quantity"
+                            min="1"
+                            step="1"
+                            value="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price per Item (₹)</label>
+                        <input
+                            type="number"
+                            id="price"
+                            min="0"
+                            step="0.01"
+                            placeholder="0.00"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" id="submitButton" class="add-btn">
+                    + Add Item
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEditButton"
+                    class="cancel-btn hidden"
+                >
+                    Cancel Edit
+                </button>
+            </form>
+        </section>
+
+        <section class="summary">
+            <div class="summary-card">
+                <span>Total Items</span>
+                <h2 id="totalItems">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <span>Pending Items</span>
+                <h2 id="pendingItems">0</h2>
+            </div>
+
+            <div class="summary-card">
+                <span>Purchased Items</span>
+                <h2 id="purchasedItems">0</h2>
+            </div>
+
+            <div class="summary-card budget-card">
+                <span>Total Cost</span>
+                <h2 id="totalCost">₹0.00</h2>
+            </div>
+        </section>
+
+        <section class="list-section">
+            <h2>My Shopping List</h2>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="🔍 Search shopping items..."
+            >
+
+            <div class="filter-buttons">
+                <button type="button" class="filter-btn active" data-filter="all">
+                    All
+                </button>
+                <button type="button" class="filter-btn" data-filter="pending">
+                    Pending
+                </button>
+                <button type="button" class="filter-btn" data-filter="purchased">
+                    Purchased
+                </button>
+            </div>
+
+            <div id="shoppingList" class="shopping-list"></div>
+
+            <p id="emptyMessage" class="empty-message">
+                Your shopping list is empty. Add your first item!
+            </p>
+
+            <button type="button" id="clearAllButton" class="clear-btn">
+                Clear All Items
+            </button>
+        </section>
+
+        <footer>
+            <p>Shopping List Manager | College Mini Project</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
